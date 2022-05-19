@@ -1,0 +1,26 @@
+<?php
+
+namespace Symfony\Component\VarExporter\Internal;
+
+return $getExpiry ? PHP_INT_MAX : Hydrator::hydrate(
+    $o = [
+        clone (Registry::$prototypes['FOS\\RestBundle\\Controller\\Annotations\\Post'] ?? Registry::p('FOS\\RestBundle\\Controller\\Annotations\\Post')),
+    ],
+    null,
+    [
+        'Symfony\\Component\\Routing\\Annotation\\Route' => [
+            'path' => [
+                '{controller}/{action}/{typeOrId}',
+            ],
+            'methods' => [
+                [
+                    'POST',
+                ],
+            ],
+        ],
+    ],
+    [
+        $o[0],
+    ],
+    []
+);
